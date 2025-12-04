@@ -104,13 +104,22 @@ function path2Shaer(path: Path){
 
 async function main() {
   // 用何种字体文件
-  const p = getPath('../fonts/Muyao.TTF')
+  // const p = getPath('../fonts/Muyao.TTF')
   // const p = getPath('../fonts/STKAITI.TTF')
+  const p = getPath('../fonts/wingding.ttf')
 
   const font = await load(p)
 
-  const path = font.getPath('龙', 0, 0, 1);
+  // const path = font.getPath('水', 0, 0, 1);
 
+  // const glyph = font.charToGlyph('\uF0F8');
+  // const path = glyph.getPath(0, 0, 1); // x, y, fontSize
+
+  const glyphIndex = 11; // 假设这是你要找的索引
+  const glyph = font.glyphs.get(glyphIndex);
+  const path = glyph.getPath(0, 0, 1)
+  
+  
   const code = path2Shaer(path);
   console.log(code);
 }
