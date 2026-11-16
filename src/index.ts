@@ -123,6 +123,8 @@ async function main() {
   // const glyph = font.charToGlyph('\uF0F8');
   // const path = glyph.getPath(0, 0, 1); // x, y, fontSize
 
+
+  // 索引查看工具: https://opentype.js.org/glyph-inspector.html
   const glyphIndex = 3004; // 假设这是你要找的索引
   const glyph = font.glyphs.get(glyphIndex);
   const path = glyph.getPath(0, 0, 1)
