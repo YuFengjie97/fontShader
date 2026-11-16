@@ -99,14 +99,22 @@ function path2Shaer(path: Path){
     }
   }
   code_str += "return d0;\n"
-  return code_str;
+
+  const res = `
+  float char(vec2 p){
+    ${code_str}
+  }
+  `
+
+  return res;
 }
 
 async function main() {
   // 用何种字体文件
   // const p = getPath('../fonts/Muyao.TTF')
   // const p = getPath('../fonts/STKAITI.TTF')
-  const p = getPath('../fonts/wingding.ttf')
+  // const p = getPath('../fonts/wingding.ttf')
+  const p = getPath('../fonts/STXINGKA.ttf')
 
   const font = await load(p)
 
@@ -115,7 +123,7 @@ async function main() {
   // const glyph = font.charToGlyph('\uF0F8');
   // const path = glyph.getPath(0, 0, 1); // x, y, fontSize
 
-  const glyphIndex = 11; // 假设这是你要找的索引
+  const glyphIndex = 3004; // 假设这是你要找的索引
   const glyph = font.glyphs.get(glyphIndex);
   const path = glyph.getPath(0, 0, 1)
   
